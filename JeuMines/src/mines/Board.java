@@ -39,6 +39,7 @@ public class Board extends JPanel {
     private int all_cells;
     private JLabel statusbar;
     private final Random random = new Random();
+    private Partie partie;
 
 
     public Board(JLabel statusbar) {
@@ -136,6 +137,61 @@ public class Board extends JPanel {
                 }
             }
         }
+
+        if (partie != null) {
+            partie.reinitialiser();
+            majBarreMulti();
+        }
+    }
+
+
+    public void setPartie(Partie partie) {
+        this.partie = partie;
+        if (partie != null) {
+            partie.reinitialiser();
+            majBarreMulti();
+        }
+    }
+
+    public Partie getPartie() {
+        return partie;
+    }
+
+    private int compterDecouvertes() {
+        int total = 0;
+        for (int c : field) {
+            if (c >= EMPTY_CELL && c < MINE_CELL) {
+                total++;
+            }
+        }
+        return total;
+    }
+
+    private int casesSuresRestantes() {
+        int total = 0;
+        for (int c : field) {
+            boolean couverte = c >= COVER_FOR_CELL && c < COVERED_MINE_CELL;
+            boolean marquee = c > COVERED_MINE_CELL && c < MARKED_MINE_CELL;
+            if (couverte || marquee) {
+                total++;
+            }
+        }
+        return total;
+    }
+
+    private void jouerCoupMulti(int decouvertesAvant) {
+        int revelees = compterDecouvertes() - decouvertesAvant;
+        boolean mine = !inGame;
+        boolean toutDecouvert = !mine && casesSuresRestantes() == 0;
+        partie.enregistrerCoup(revelees, mine, toutDecouvert);
+        if (toutDecouvert) {
+            inGame = false;
+        }
+        majBarreMulti();
+    }
+
+    private void majBarreMulti() {
+        statusbar.setText(partie.resume(mines_left));
     }
 
 
@@ -255,6 +311,11 @@ public class Board extends JPanel {
         }
 
 
+        if (partie != null) {
+            majBarreMulti();
+            return;
+        }
+
         if (uncover == 0 && inGame) {
             inGame = false;
             statusbar.setText("Game won");
@@ -309,6 +370,8 @@ public class Board extends JPanel {
                         return;
                     }
 
+                    int decouvertesAvant = (partie != null) ? compterDecouvertes() : 0;
+
                     if ((field[(cRow * cols) + cCol] > MINE_CELL) &&
                         (field[(cRow * cols) + cCol] < MARKED_MINE_CELL)) {
 
@@ -319,6 +382,9 @@ public class Board extends JPanel {
                             inGame = false;
                         if (field[(cRow * cols) + cCol] == EMPTY_CELL)
                             find_empty_cells((cRow * cols) + cCol);
+
+                        if (partie != null)
+                            jouerCoupMulti(decouvertesAvant);
                     }
                 }
 

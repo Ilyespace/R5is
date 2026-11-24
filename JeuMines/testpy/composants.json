@@ -1,0 +1,18 @@
+{
+  "composants": [
+    {"nom": "Board.newGame",                  "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 23, "coverage": 90.0,  "code_smells": 6},
+    {"nom": "Board.find_empty_cells",         "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 27, "coverage": 85.0,  "code_smells": 5},
+    {"nom": "Board.paint",                    "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 16, "coverage": 75.0,  "code_smells": 3},
+    {"nom": "MinesAdapter.mousePressed",      "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 14, "coverage": 80.0,  "code_smells": 4},
+    {"nom": "Board.<init>",                   "vulnerabilites": 0, "bugs_critiques": 1, "complexite": 2,  "coverage": 0.0,   "code_smells": 1},
+    {"nom": "Board.setPartie",                "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 2,  "coverage": 100.0, "code_smells": 0},
+    {"nom": "Board.jouerCoupMulti",           "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 3,  "coverage": 100.0, "code_smells": 0},
+    {"nom": "Partie.enregistrerCoup",         "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 4,  "coverage": 100.0, "code_smells": 0},
+    {"nom": "Partie.gagnants",                "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 6,  "coverage": 100.0, "code_smells": 1},
+    {"nom": "Partie.resume",                  "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 5,  "coverage": 100.0, "code_smells": 0},
+    {"nom": "Mines.<init>",                   "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 3,  "coverage": 0.0,   "code_smells": 0},
+    {"nom": "Mines.demanderNombreJoueurs",    "vulnerabilites": 0, "bugs_critiques": 0, "complexite": 2,  "coverage": 0.0,   "code_smells": 0},
+    {"nom": "ServeurEnLigne.recevoirCoup",    "vulnerabilites": 2, "bugs_critiques": 0, "complexite": 8,  "coverage": 55.0,  "code_smells": 2},
+    {"nom": "ServeurEnLigne.creerSalle",      "vulnerabilites": 0, "bugs_critiques": 1, "complexite": 12, "coverage": 40.0,  "code_smells": 7}
+  ]
+}

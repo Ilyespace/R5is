@@ -1,0 +1,39 @@
+{
+  "kpi": {
+    "total": 14,
+    "A refactorer d'urgence": {
+      "nombre": 3,
+      "pourcentage": 21.4
+    },
+    "A surveiller": {
+      "nombre": 6,
+      "pourcentage": 42.9
+    },
+    "Clean": {
+      "nombre": 5,
+      "pourcentage": 35.7
+    }
+  },
+  "categories": {
+    "A refactorer d'urgence": [
+      "ServeurEnLigne.recevoirCoup",
+      "ServeurEnLigne.creerSalle",
+      "Board.<init>"
+    ],
+    "A surveiller": [
+      "Board.find_empty_cells",
+      "Board.newGame",
+      "Board.paint",
+      "MinesAdapter.mousePressed",
+      "Mines.<init>",
+      "Mines.demanderNombreJoueurs"
+    ],
+    "Clean": [
+      "Partie.gagnants",
+      "Partie.resume",
+      "Partie.enregistrerCoup",
+      "Board.jouerCoupMulti",
+      "Board.setPartie"
+    ]
+  }
+}
